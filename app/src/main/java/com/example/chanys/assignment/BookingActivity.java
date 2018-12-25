@@ -11,8 +11,9 @@ public class BookingActivity extends AppCompatActivity {
     TextView CourttextView;
     TextView TelephonetextView;
     TextView AddresstextView;
-    private Integer SelectedSport;
-    private Integer WhichCourt;
+    private Integer SelectedSport = 0;
+    private Integer WhichCourt = 0;
+    private Integer Combine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +21,19 @@ public class BookingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_booking);
 
         Intent intent = getIntent(); //Who called me?
-        if(intent.hasExtra(com.example.chanys.assignment.MenuActivity.TAG_MESSAGE)) {
-            SelectedSport = Integer.parseInt(intent.getStringExtra(com.example.chanys.assignment.MenuActivity.TAG_MESSAGE));
-        }
         if(intent.hasExtra(com.example.chanys.assignment.SportActivity.TAG_MESSAGE)) {
-            WhichCourt = Integer.parseInt(intent.getStringExtra(com.example.chanys.assignment.SportActivity.TAG_MESSAGE));
+            Combine = Integer.parseInt(intent.getStringExtra(com.example.chanys.assignment.SportActivity.TAG_MESSAGE));
         }
+
+        int temp;
+        while (true){
+            temp = Combine / 10;
+            SelectedSport++;
+            if (temp < 10){
+                break;
+            }
+        }
+        WhichCourt = temp;
 
         CourttextView = findViewById(R.id.courtTextView);
         TelephonetextView = findViewById(R.id.telephoneTextView);

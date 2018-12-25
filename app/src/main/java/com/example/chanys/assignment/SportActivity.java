@@ -46,21 +46,21 @@ public class SportActivity extends AppCompatActivity {
 
     public void SelectCourtNumber1(View view) {
         Intent intent = new Intent(this, BookingActivity.class);
-        WhichCourt = 1;
+        WhichCourt = 1 + SelectedSport * 10;
         intent.putExtra(TAG_MESSAGE, Integer.toString(WhichCourt));
         startActivity(intent);
     }
 
     public void SelectCourtNumber2(View view) {
         Intent intent = new Intent(this, BookingActivity.class);
-        WhichCourt = 2;
+        WhichCourt = 2 + SelectedSport * 10;
         intent.putExtra(TAG_MESSAGE, Integer.toString(WhichCourt));
         startActivity(intent);
     }
 
     public void SelectCourtNumber3(View view) {
         Intent intent = new Intent(this, BookingActivity.class);
-        WhichCourt = 3;
+        WhichCourt = 3 + SelectedSport * 10;
         intent.putExtra(TAG_MESSAGE, Integer.toString(WhichCourt));
         startActivity(intent);
     }
